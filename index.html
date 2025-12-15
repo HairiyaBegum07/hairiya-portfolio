@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  integrity="sha512-KF1+U5E1C3OKD9lPcYqRgq6TwD5cXeX4snUk8o1xkq3O3chzktY72b1YF6F2CfyD/pe4nYvEAtqpiGZBo7+9tQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hairiya Begum — Portfolio</title>
+
+  <style>
+  :root{
+    --bg:#0f0f1a;
+    --panel:#161621;
+    --accent1:#3fb3ff;
+    --accent2:#fc4fd7;
+    --text:#f6f6fa;
+    --muted:#9aa0b3;
+    --glass: rgba(255,255,255,0.03);
+    --radius:14px;
+    --shadow:0 18px 50px rgba(0,0,0,0.45);
+    font-family:"Inter","Poppins",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    -webkit-font-smoothing:antialiased;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;background:linear-gradient(180deg,#08090d,#0b1220 60%);color:var(--text);scroll-behavior:smooth}
+  img{display:block;max-width:100%;height:auto;border-radius:8px}
+  a{color:inherit;text-decoration:none}
+
+  /* ===== Header ===== */
+  .header{
+    position:fixed;top:12px;left:12px;right:12px;z-index:1000;display:flex;justify-content:space-between;align-items:center;
+    padding:12px 20px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));backdrop-filter:blur(6px);
+    box-shadow:var(--shadow);
+  }
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{
+    width:56px;height:56px;border-radius:12px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--accent1),var(--accent2));font-weight:800;color:#032036;font-size:16px;
+    box-shadow:0 10px 30px rgba(63,179,255,0.14);
+  }
+  .brand h1{font-size:16px}
+  .nav{display:flex;gap:12px;align-items:center}
+  .nav a{padding:8px 10px;border-radius:8px;color:var(--muted);font-weight:600;transition:color .2s,transform .2s}
+  .nav a:hover{color:var(--accent2);transform:translateY(-3px)}
+  .nav a.active{color:var(--accent1)}
+
+  /* ===== Container ===== */
+  .container{width:100%;max-width:1200px;margin:100px auto 80px;padding:0 20px}
+  .section{padding:56px 0}
+  .section h2{text-align:left;font-size:28px;margin-bottom:20px;color:transparent;
+    background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text}
+
+  /* ===== HERO ===== */
+  .hero{
+    display:flex;gap:30px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+    padding:36px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+    box-shadow:var(--shadow);
+  }
+  .hero-left{flex:1;min-width:300px;max-width:760px}
+  .hero-right{width:340px;flex:0 0 340px;display:grid;place-items:center}
+
+  .title{font-size:44px;line-height:1.02;font-weight:800}
+  .title span{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;color:transparent}
+  .lead{margin-top:14px;color:var(--muted);font-size:16.5px;line-height:1.6}
+  .cta-row{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{padding:10px 16px;border-radius:999px;font-weight:700;font-size:14px;border:0;cursor:pointer;transition:transform .15s,opacity .15s}
+  .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#032036}
+  .btn-ghost{background:transparent;border:1px solid var(--glass);color:var(--text)}
+  .btn:hover{transform:translateY(-4px)}
+
+  /* ===== Glowing Rotating Profile ===== */
+  .profile-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .glow-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      #00f5ff,
+      #00ffcc,
+      #ff00ff,
+      #8a2be2,
+      #00f5ff
+    );
+    animation: rotateGlow 6s linear infinite;
+    filter: blur(8px);
+    z-index: 0;
+  }
+
+  .photo-frame {
+    position: relative;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid rgba(255,255,255,0.2);
+    z-index: 2;
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+
+  .glow-blur {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00f5ff, #ff00ff);
+    filter: blur(35px);
+    opacity: 0.6;
+    animation: pulse 3s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  @keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.1); }
+  }
+
+  /* ===== Responsive ===== */
+  @media(max-width:720px){
+    .hero{padding:28px;flex-direction:column-reverse;gap:18px}
+    .profile-wrapper{width:240px;height:240px}
+    .photo-frame{width:220px;height:220px}
+  }
+
+  /* ===== About Card ===== */
+  .about-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: #161621;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(63, 179, 255, 0.2);
+      padding: 50px;
+      width: 85%;
+      max-width: 1000px;
+      gap: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .about-section:hover {
+      box-shadow: 0 0 25px rgba(63, 179, 255, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .about-left, .about-right {
+      flex: 3;
+    }
+
+    .about-left h2 {
+      color: #3fb3ff;
+      font-size: 1.8rem;
+      margin-bottom: 3%;
+    }
+
+    .about-left p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .about-right h3 {
+      color: #3fb3ff;
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    .contact-info p {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      color: #ddd;
+      font-size: 0.95rem;
+    }
+
+    .contact-info i {
+      color: #3fb3ff;
+      margin-right: 10px;
+      width: 20px;
+      text-align: center;
+    }
+
+    /* Responsive for small screens */
+    @media(max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-left, .about-right {
+        width: 100%;
+      }
+
+      .contact-info p {
+        justify-content: center;
+      }
+    }
+    /* internship section  */
+     section#internships {
+      width: 65%;
+      max-width: 100px;
+      margin: auto;
+    }
+
+    section#internships h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #3fb3ff;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #3fb3ff;
+    }
+
+    .internship-card {
+      background-color: #0e0e13;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(63, 179, 255, 0.2);
+      margin-bottom: 30px;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .internship-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(63, 179, 255, 0.4);
+    }
+
+    .internship-info {
+      flex: 1;
+    }
+
+    .internship-info h3 {
+      color: #3fb3ff;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .internship-info p {
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .certificate-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .certificate-buttons a {
+      background-color: #4d99cb;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .certificate-buttons a:hover {
+      background-color: #66cfff;
+      box-shadow: 0 0 10px #3fb3ff;
+      transform: scale(1.05);
+    }
+
+    .certificate-buttons i {
+      margin-right: 8px;
+    }
+
+    @media (max-width: 800px) {
+      .internship-card {
+        flex-direction: column;
+        text-align: center;
+      }
+      .certificate-buttons {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+      }
+    }
+    section#education {
+      width: 85%;
+      max-width: 900px;
+      background-color: #161621;
+      border-radius: 20px;
+      padding: 40px 50px;
+      box-shadow: 0 0 20px rgba(63, 179, 255, 0.25);
+      position: relative;
+    }
+
+    section#education h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #3fb3ff;
+      text-shadow: 0 0 10px #3fb3ff;
+      margin-bottom: 40px;
+    }
+
+    /* Timeline style */
+    .timeline {
+      position: relative;
+      margin-left: 30px;
+      padding-left: 25px;
+      border-left: 2px dotted rgba(63, 179, 255, 0.5);
+    }
+
+    .edu-item {
+      position: relative;
+      margin-bottom: 40px;
+      padding-left: 25px;
+    }
+
+    .edu-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-item::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #3fb3ff;
+      box-shadow: 0 0 10px #3fb3ff;
+    }
+
+    .edu-item h3 {
+      font-size: 20px;
+      color: #3fb3ff;
+      margin: 0 0 5px;
+    }
+
+    .edu-item p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+      color: #ddd;
+    }
+
+    .edu-item span {
+      display: block;
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 5px;
+    }
+
+    /* Hover glow effect */
+    .edu-item:hover::before {
+      background-color: #66cfff;
+      transform: scale(1.2);
+      transition: 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      section#education {
+        padding: 30px 25px;
+      }
+      .timeline {
+        margin-left: 10px;
+        padding-left: 20px;
+      }
+    }
+    /* ===== PROJECTS ===== */
+.projects {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff;
+}
+
+.section-title span {
+  color: #fff;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 90%;
+  margin: auto;
+}
+
+.project-card {
+  background: #0a192f;
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px #00ffff;
+}
+
+.project-card h3 {
+  margin-top: 15px;
+  color: #fff;
+  text-shadow: 0 0 8px #00ffff;
+}
+
+.project-card p {
+  color: #8892b0;
+  font-size: 14px;
+}
+/* ===== SKILLS SECTION ===== */
+.skills {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 60px;
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+.section-title span {
+  color: #fff;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+  gap: 50px;
+}
+
+/* ===== CERTIFICATIONS SECTION ===== */
+ /* ===== CERTIFICATIONS SECTION ===== */
+#certs {
+  background: #0f0f1a;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#certs h2 {
+  font-size: 2rem;
+  color: #3fb3ff;
+  margin-bottom: 25px;
+}
+
+/* Horizontal scroll container */
+.certs-row {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: light;
+  scrollbar-color: #3fb3ff #161621;
+  -webkit-overflow-scrolling: touch;
+}
+
+.certs-row::-webkit-scrollbar {
+  height: 1px;
+}
+.certs-row::-webkit-scrollbar-thumb {
+  background: #3fb3ff;
+  border-radius: 5px;
+}
+.certs-row::-webkit-scrollbar-track {
+  background: #161621;
+}
+
+
+/* Flex track for items */
+.certs-track {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 10px;
+}
+
+/* Certificate cards */
+.cert-item {
+  background: #161621;
+  border-radius: 10px;
+  width: 250px;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(63, 179, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.cert-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(63, 179, 255, 0.6);
+}
+
+/* Certificate viewer (no inner scrollbars) */
+.cert-item iframe {
+  width: 100%;
+  height: 180px;
+  border: none;
+  overflow: hidden;
+}
+
+.cert-item h4 {
+  font-size: 0.9rem;
+  padding: 8px;
+  background: #1e1e2a;
+  color: #fff;
+}
+
+/* ===== POPUP VIEWER ===== */
+#popup-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+#popup-viewer.show {
+  display: flex;
+}
+
+.popup-content {
+  position: relative;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  width: 800px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(63, 179, 255, 0.7);
+}
+
+#popup-pdf {
+  width: 100%;
+  height: 500px;
+  border: none;
+  border-radius: 8px;
+}
+
+#close-popup {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  color: #fff;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+#download-btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: #3fb3ff;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#download-btn:hover {
+  background: #6fd6ff;
+}
+
+/* ===== Keyframes for continuous scrolling ===== */
+@keyframes certsScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+ /* Technical Skills */
+    .technical {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .technical h3 {
+        font-size: 22px;
+        margin-bottom: 25px;
+        border-bottom: 2px solid #00ffff;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .skill {
+        margin-bottom: 20px;
+    }
+
+    .skill-name {
+        font-weight: 500;
+        margin-bottom: 8px;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 10px;
+        background: #1b2b3c;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .progress {
+        height: 100%;
+        border-radius: 5px;
+        background: linear-gradient(90deg, #00ffff, #0077ff);
+        box-shadow: 0 0 15px #00ffff;
+        transition: 0.6s;
+    }
+
+    /* Professional Skills */
+    .professional {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .professional h3 {
+        font-size: 22px;
+        margin-bottom: 25px;
+        border-bottom: 2px solid #00ffff;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .circle-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        justify-items: center;
+    }
+
+    .circle {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: conic-gradient(#00ffff calc(var(--percent) * 1%), #1b2b3c 0%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+        transition: 0.4s ease;
+    }
+
+    .circle:hover {
+        box-shadow: 0 0 40px #00ffff, 0 0 80px #0077ff;
+        transform: scale(1.05);
+    }
+
+    .circle::before {
+        content: '';
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        background: #0b1c2b;
+        border-radius: 50%;
+    }
+
+    .circle span {
+        position: absolute;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .circle p {
+        position: absolute;
+        bottom: -30px;
+        font-size: 15px;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="brand">
+    <div class="logo">HB</div>
+    <div><h1>Hairiya Begum</h1><div style="color:var(--muted);font-size:13px">Web Developer • Frontend • </div></div>
+  </div>
+  <nav class="nav">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a>
+    <a href="#Internship">Internship</a><a href="#projects">Projects</a><a href="#certs">Certifications</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+  </nav>
+</div>
+
+<!-- MAIN -->
+<main class="container">
+
+<section id="home" class="hero">
+  <div class="hero-left">
+    <div class="title">Hello, I'm <span>Hairiya Begum</span></div>
+    <div class="typing" id="typingLine"></div>
+    <p class="lead">I build modern, responsive websites and interactive frontends. Final-year engineering student with strong interest in full-stack development and UI/UX.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="hairiyabegum758@gmail.com">Hire / Contact</a>
+      <a class="btn btn-ghost" href="Hairiya begum.pdf" target="_blank">Download Resume</a>
+      <a class="btn btn-ghost" href="https://github.com/HairiyaBegum07" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- glowing rotating photo -->
+    <div class="profile-wrapper">
+      <div class="glow-ring"></div>
+      <div class="photo-frame">
+        <img src="imghai.JPG" alt="Hairiya Begum" onerror="this.src='https://source.unsplash.com/420x420/?portrait,woman'">
+      </div>
+      <div class="glow-blur"></div>
+    </div>
+  </div>
+</section>
+<section id="about" class="section">
+    <h2><i class="fa-solid fa-user"></i> About Me</h2>
+    <div class="about-section">
+    <!-- Left: About Me -->
+    <div class="about-left">
+      <h2>Who Am I?</h2>
+      <p>
+        I'm <strong>Hairiya Begum</strong>, a passionate <strong>Web Developer</strong> skilled in 
+        HTML, CSS, JavaScript, Bootstrap, and React.  
+        I focus on building clean, accessible, and responsive interfaces.  
+        I love transforming ideas into polished user experiences and continuously learning new web technologies.
+      </p>
+    </div>
+
+    <!-- Right: Contact Info -->
+    <div class="about-right">
+      <h3>Contact Details</h3>
+      <div class="contact-info">
+        <p><i class="fa-solid fa-phone"></i> +91 97864 80571</p>
+        <p><i class="fa-solid fa-envelope"></i> hairiyabegum758@gmail.com</p>
+        <p><i class="fa-solid fa-location-dot"></i> 394, JBC Housing Board, Ayyanthirumalikai, Salem-8, Tamil Nadu</p>
+        <p><i class="fa-solid fa-calendar-days"></i> DOB: January 7, 2005</p>
+      </div>
+    </div>
+</section>
+
+
+
+
+ <section id="education" class="section">
+    <h2><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+
+    <div class="timeline">
+      <!-- College -->
+      <div class="edu-item">
+        <h3>B.E — Computer Science</h3>
+        <p>Vivekanandha College of Engineering for Women</p>
+        <span>2022 – 2026 | 7.5 CGPA</span>
+      </div>
+
+      <!-- HSC -->
+      <div class="edu-item">
+        <h3>HSC — Higher Secondary Certificate</h3>
+        <p>Sri Sarada Matriculation Higher Secondary School for Girls</p>
+        <span>2021 – 2022 | 64%</span>
+      </div>
+
+      <!-- SSLC -->
+      <div class="edu-item">
+        <h3>SSLC — Secondary School Leaving Certificate</h3>
+        <p>Sri Sarada Matriculation Higher Secondary School for Girls</p>
+        <span>2019 – 2020 | 60%</span>
+      </div>
+    </div>
+  </section>
+<section id="Internship" class="section">
+    <h2><i class="fa-solid fa-briefcase"></i> Internships</h2>
+
+    <!-- Internship Card 1: NSIC -->
+    <div class="internship-card">
+      <div class="internship-info">
+        <h3>Web Developer Intern — NSIC</h3>
+        <p>Completed a 6-week full stack development internship. Worked on front-end and back-end integration, improving UI responsiveness, and implementing user-driven features using HTML, CSS, JavaScript, and Python (Flask).</p>
+      </div>
+
+      <div class="certificate-buttons">
+        <a href="NSIC Certificate .pdf" target="_blank"><i class="fa-solid fa-eye"></i> See Certificate</a>
+        <a href="NSIC Certificate .pdf" download><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+
+    <!-- Internship Card 2: GUVI -->
+    <div class="internship-card">
+      <div class="internship-info">
+        <h3>Frontend Developer Intern — GUVI</h3>
+        <p>Created and optimized the design of a responsive furniture website using React, HTML, CSS, and Bootstrap. Enhanced UI components for mobile and desktop platforms to ensure accessibility and performance.</p>
+      </div>
+
+      <div class="certificate-buttons">
+        <a href="Vivekanandha Skill Developement certificate .pdf" target="_blank"><i class="fa-solid fa-eye"></i> See Certificate</a>
+        <a href="Vivekanandha Skill Developement certificate .pdf" download><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+  </section>
+<!-- ===== PROJECT SECTION ===== -->
+  <section id="projects" class="projects">
+    <h2 class="section-title">My <span>Projects</span></h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="leave-management-system-1024x576.webp" alt="Leave management">
+        <h3>Faculty Leave & OD Management System</h3>
+        <p>quickly responsive for Faculty leave.</p>
+      </div>
+      <div class="project-card">
+        <img src="ai plan.jpg" alt="Website Development">
+        <h3>Website Development</h3>
+        <p>AI-plan generator are user-friendly editor.Dynamic and responsive sites using HTML, CSS, and JavaScript.</p>
+      </div>
+    </div>
+  </section>
+<!-- ===== CERTIFICATIONS SECTION ===== -->
+<section id="certs" class="section reveal">
+  <h2>Certifications</h2>
+  <div class="certs-row">
+    <div class="certs-track">
+
+      <div class="cert-item">
+        <iframe src="blockchain 101-certificate.pdf" title="Blockchain – Infosys"></iframe>
+        <h4>Blockchain – Infosys</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="Certificate for A.Hairiya Begum for _IEEE - EBSCO India Training..._.pdf" title="IEEE Xplore – IEEE"></iframe>
+        <h4>IEEE Xplore – IEEE</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="certificate.pdf" title="AICTE– Intellectual property UTSAV"></iframe>
+        <h4>AICTE – Intellectual Property UTSAV</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="Demystifying Generative AI for Leaders -certificate.pdf" title="Demystifying Generative AI for Leaders – Infosys"></iframe>
+        <h4>Demystifying Generative AI for Leaders – Infosys</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="Hairiya begum A certificate intel.pdf" title="AI for entrepreneurship – Intel"></iframe>
+        <h4>AI for Entrepreneurship – Intel</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="Hairiya Begum A_ Python Certificate.pdf" title="Python – Cybernaut"></iframe>
+        <h4>Python – Cybernaut</h4>
+      </div>
+      <div class="cert-item">
+        <iframe src="Hairiya Begum A_Java Certificate.pdf" title="java – Cybernaut"></iframe>
+        <h4>java – Cybernaut</h4>
+      </div>
+      <div class="cert-item">
+        <iframe src="Hariya Begum A_C++ Certificate.pdf" title="C++ – Cybernaut"></iframe>
+        <h4>C++ – Cybernaut</h4>
+      </div>
+    
+    <div class="cert-item">
+        <iframe src="HAIRIYA-BEGUM-A-Participant-Certificate (1).pdf" title="HTML – spoken tutorial"></iframe>
+        <h4>HTML – Spoken Tutorial</h4>
+      </div>
+      <div class="cert-item">
+        <iframe src="HAIRIYA-BEGUM-A-Participant-Certificate (2).pdf" title="Bash– spoken tutorial"></iframe>
+        <h4>Bash – Spoken tutorial</h4>
+      </div> 
+      <div class="cert-item">
+        <iframe src="HAIRIYA-BEGUM-A-Participant-Certificate (3).pdf" title="Android app using Kotlin Training– spoken tutorial"></iframe>
+        <h4>Android app using Kotlin Training– Spoken tutorial</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="HAIRIYA-BEGUM-A-Participant-Certificate (4).pdf" title="GIMP– spoken tutorial"></iframe>
+        <h4>GIMP– Spoken tutorial</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="HAIRIYA-BEGUM-A-Participant-Certificate (5).pdf" title="Ruby– spoken tutorial"></iframe>
+        <h4>Ruby– Spoken tutorial</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="HAIRIYA-BEGUM-A-Participant-Certificate (6).pdf" title="Gnuplot– spoken tutorial"></iframe>
+        <h4>Gnuplot– Spoken tutorial</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="HAIRIYA-BEGUM-A-Participant-Certificate (7).pdf" title="ns-3 Network Simulator– spoken tutorial"></iframe>
+        <h4>ns-3 Network Simulator– Spoken tutorial</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="HAIRIYA-BEGUM-A-Participant-Certificate (8).pdf" title="gedit Text Editor– spoken tutorial"></iframe>
+        <h4>gedit Text Editor– Spoken tutorial</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="HAIRIYA-BEGUM-A-Participant-Certificate.pdf" title="RDBMS– spoken tutorial"></iframe>
+        <h4>RDBMS– Spoken tutorial</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="IMG-20251025-WA0022.jpg" title="python zero to hero– GUVI"></iframe>
+        <h4>python zero to hero– GUVI</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="IMG-20251025-WA0023.jpg" title="SAWIT.AIlearnathon– GUVI"></iframe>
+        <h4>SAWIT.AI learnathon– GUVI</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="IMG-20251025-WA0024.jpg" title="node.js– GUVI"></iframe>
+        <h4>node.js– GUVI</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="IMG-20251025-WA0025.jpg" title="Vue.js– GUVI"></iframe>
+        <h4>Vue.js– GUVI</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="IMG-20251025-WA0026.jpg" title="Html&css– GUVI"></iframe>
+        <h4>Html &css– GUVI</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="IMG-20251025-WA0027.jpg" title="Mysql– GUVI"></iframe>
+        <h4>Mysql– GUVI</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="IMG-20251025-WA0028.jpg" title="Bootstrap– GUVI"></iframe>
+        <h4>Bootstrap– GUVI</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="IMG-20251025-WA0029.jpg" title="React.js– GUVI"></iframe>
+        <h4>React.js– GUVI</h4>
+      </div>
+
+      <div class="cert-item">
+        <iframe src="IMG-20251025-WA0030.jpg" title="GIT– GUVI"></iframe>
+        <h4>GIT– GUVI</h4>
+      </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+</section>
+<div id="popup-viewer">
+  <div class="popup-content">
+    <button id="close-popup">✕</button>
+    <iframe id="popup-pdf" src="#"></iframe>
+    <a id="download-btn" href="#" download>⬇ Download Certificate</a>
+  </div>
+</div>
+
+
+
+<!-- ===== SKILLS SECTION ===== -->
+  <section id="skills"class="skills">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+        <!-- Technical Skills -->
+        <div class="technical">
+            <h3>Technical Skills</h3>
+            <div class="skill">
+                <div class="skill-name">HTML</div>
+                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">CSS</div>
+                <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">JavaScript</div>
+                <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Python</div>
+                <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">React</div>
+                <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
+            </div>
+        </div>
+
+        <!-- Professional Skills -->
+        <div class="professional">
+            <h3>Professional Skills</h3>
+            <div class="circle-container">
+                <div class="circle" style="--percent:50">
+                    <span>50%</span>
+                    <p>Creativity</p>
+                </div>
+                <div class="circle" style="--percent:85">
+                    <span>85%</span>
+                    <p>Communication</p>
+                </div>
+                <div class="circle" style="--percent:75">
+                    <span>75%</span>
+                    <p>Problem Solving</p>
+                </div>
+                <div class="circle" style="--percent:85">
+                    <span>85%</span>
+                    <p>Teamwork</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <div class="about-card" style="text-align:center">
+    <p style="color:var(--muted)">Want to collaborate or hire me? Reach out via email or phone.</p>
+    <div style="margin-top:12px">
+      <a class="btn btn-primary" href="mailto:hairiyabegum758@gmail.com">Email Me</a>
+    </div>
+  </div>
+</section>
+
+<div style="text-align:center;margin-top:28px;color:var(--muted)">© 2025 Hairiya Begum • Built with ❤️ — HTML / CSS / JS</div>
+
+</main>
+
+<!-- Typing JS -->
+<script>
+const phrases=["Web Developer","Frontend Enthusiast","React Learner","UI-focused"];
+let pi=0;
+const el=document.getElementById('typingLine');
+function type(){
+  let i=0;
+  el.textContent='';
+  const t=setInterval(()=>{
+    el.textContent=phrases[pi].slice(0,i++);
+    if(i>phrases[pi].length){clearInterval(t);setTimeout(erase,1200)}
+  },60);
+}
+function erase(){
+  let i=phrases[pi].length;
+  const e=setInterval(()=>{
+    el.textContent=phrases[pi].slice(0,--i);
+    if(i<0){clearInterval(e);pi=(pi+1)%phrases.length;setTimeout(type,200)}
+  },40);
+}
+type();
+ // When certificate clicked
+  document.querySelectorAll(".cert-item").forEach(item => {
+    item.addEventListener("click", () => {
+      const file = item.getAttribute("data-file");
+      document.getElementById("popup-pdf").src = file;
+      document.getElementById("download-btn").href = file;
+      document.getElementById("popup-viewer").classList.add("show");
+    });
+  });
+
+  // Close popup
+  document.getElementById("close-popup").addEventListener("click", () => {
+    document.getElementById("popup-viewer").classList.remove("show");
+  });
+</script>
+
+</body>
+</html>
